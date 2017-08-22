@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面数据配置工具</title>
+    <link rel="stylesheet" type="text/css" href="../../lib/jquery-easyui-1.4.2/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../lib/jquery-easyui-1.4.2/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../lib/jquery-easyui-1.4.2/themes/color.css">
+    <link rel="stylesheet" type="text/css" href="../../css/base/elements.css">
+    <link rel="stylesheet" type="text/css" href="../../css/base/base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/configTool/configTool.css">
+</head>
+<body>
+<div class="container">
+    <div class="guide-box">
+        <span class="color1 font18" id="configTitle">接口数据配置</span>
+    </div>
+    <form id="infoForm" enctype="multipart/form-data" method="post">
+        <div class="box">
+            <h4 class="title">模型配置</h4>
+            <div class="hrow">
+                <div class="content-item-box">
+                    <span class="span-search-item">接口名称</span>
+                    <input type="text" class="easyui-textbox tbox2" name="apiName" id="apiName"
+                           data-options="required:true">
+                    <span class="span-search-item"></span>
+                    <span class="span-search-item">接口编号</span>
+                    <div id="apiNoValid">
+                        <input type="text" class="easyui-textbox tbox2" name="apiNo" id="apiNo"
+                               data-options="required:true,validType:'isNumExist'">
+                    </div>
+                </div>
+            </div>
+            <div class="hrow" id="stringDiv">
+                <div class="content-item-box">
+                    <span class="span-search-item">json字符</span>
+                    <input type="text" class="easyui-textbox tbox4" name="jsonString" id="jsonString"
+                           data-options="required:true,validType:'isJson'">
+                    <span class="example">通配符：[#file]&nbsp;匹配文件，[#html]&nbsp;匹配html文本<br/>例如：{"name": "大王","file": "[#file]","list": [123,43,123436],"object": {"param": 123,"html":"[#html]"}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <h4 class="title">数据配置</h4>
+            <div style="padding:0 0 0 40%;font-size: large;" id="jsonView">
+            </div>
+        </div>
+        <div class="box">
+            <div style="text-align: center;">
+                <button type="button" class="btn btn-success mr10" id="saveBtn">保存</button>
+                <button type="button" class="btn btn-delete mr10" id="cancelBtn">取消</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+<script type="text/javascript" src="../../lib/jquery-easyui-1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="../../lib/jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../../lib/jquery-easyui-1.4.2/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="../../js/base/base.js"></script>
+<script type="text/javascript" src="../../lib/validation/validateRules.js"></script>
+<script type="text/javascript" src="../../js/configTool/configTool.js"></script>
+</html>

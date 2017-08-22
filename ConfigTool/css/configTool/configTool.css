@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+.example{
+    position: absolute;
+    top: 25px;
+    left: 75px;
+    color: red;
+}
+.t48l110{
+    top: 51px;
+    left: 60px;
+}
+.t48l151{
+    top: 48px;
+    left: 102px;
+}
+.ml40{
+margin-left: 40px;
+}

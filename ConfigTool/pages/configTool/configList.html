@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面数据配置工具</title>
+    <link rel="stylesheet" type="text/css" href="../../lib/jquery-easyui-1.4.2/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../lib/jquery-easyui-1.4.2/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../lib/jquery-easyui-1.4.2/themes/color.css">
+    <link rel="stylesheet" type="text/css" href="../../css/base/elements.css">
+    <link rel="stylesheet" type="text/css" href="../../css/base/base.css">
+</head>
+<body>
+<div class="container">
+    <div class="guide-box">
+        <span class="color1 font18">接口配置列表</span>
+    </div>
+    <div class="searchbox box" id="searchBox">
+        <h4 class="title">条件查询</h4>
+        <div class="hrow">
+            <div class="search-item-box">
+                <span class="span-search-item">接口名称</span>
+                <input type="text" class="easyui-textbox tbox2" id="apiName">
+            </div>
+            <div class="search-item-box">
+                <span class="span-search-item">接口编号</span>
+                <input type="text" class="easyui-textbox tbox2" id="apiNo">
+            </div>
+            <div class="search-item-box">
+                <button type="button" class="btn btn-primary " id="searchBtn">搜索</button>
+            </div>
+        </div>
+    </div>
+    <div class="contentbox">
+        <div class="btnbox">
+            <button type="button" class="btn btn-success mr10" id="saveBtn">新增</button>
+            <button type="button" class="btn btn-primary mr10" id="updateBtn">修改</button>
+            <button type="button" class="btn btn-delete mr10" id="deleteBtn">删除</button>
+        </div>
+        <div class="databox">
+            <table id="configTable"></table>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="../../lib/jquery-easyui-1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="../../lib/jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../../lib/jquery-easyui-1.4.2/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="../../js/base/base.js"></script>
+<script type="text/javascript" src="../../js/configTool/configList.js"></script>
+</html>
