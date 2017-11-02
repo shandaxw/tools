@@ -32,7 +32,7 @@ var configList = {
     initTable: function () {
         $("#configTable").datagrid({
             url: baseUrl + configList.configParam.configListUrl,
-            method: 'POST',
+            method: 'GET',
             rownumbers: true,
             singleSelect: true,
             fit: true,
@@ -64,7 +64,7 @@ var configList = {
      * 〈功能详细描述〉
      */
     toSaveView: function () {
-        window.location = "../../pages/configTool/configTool.html";
+        window.location = "../html/configTool.html";
     },
     /*
      * 〈一句话功能简述〉跳到修改页面
@@ -74,7 +74,7 @@ var configList = {
         var $configTable = $("#configTable");
         var row = $configTable.datagrid('getSelected');
         if (row) {
-            window.location = "../../pages/configTool/configTool.html?apiNo="+row.apiNo;
+            window.location = "../html/configTool.html?apiNo="+row.apiNo;
         } else {
             $.messager.alert('警告', '你没有选中要删除的数据', 'warning');
         }
@@ -105,11 +105,11 @@ var configList = {
             $.messager.confirm('删除', '确定删除？', function (r) {
                 if (r) {
                     $.ajax({
-                        type: "POST",
+                        type: "DELETE",
                         url: baseUrl + configList.configParam.deleteUrl+row.id,
                         dataType: "json",
                         success: function (data) {
-                            if (data.code == 1000000) {
+                            if (data.code == 0) {
                                 $.messager.alert('提示', '删除成功');
                                 $configTable.datagrid('reload');
                             } else {

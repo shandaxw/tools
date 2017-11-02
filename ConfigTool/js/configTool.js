@@ -15,7 +15,6 @@ var configTool = {
         fileReg: /\[#file_(\d*)\]/,
         htmlReg: /\[#html_(\d*)\]/,
         opType: 0,          //0新增，1更新
-        isNumExistUrl: "/configTool/isNumExist",
         saveUrl: "/configTool/save",
         updateUrl: "/configTool/update",
         infoUrl: "/configTool/config/"
@@ -119,7 +118,7 @@ var configTool = {
             success: function (data) {
                 $.messager.progress('close');
                 data = JSON.parse(data);
-                if (data.code == 1000000) {
+                if (data.code == 0) {
                     configTool.toListView();
                 } else {
                     $.messager.alert('提示', data.message, 'error');
@@ -152,7 +151,7 @@ var configTool = {
      * 〈功能详细描述〉
      */
     toListView: function () {
-        window.location = "../../pages/configTool/configList.html";
+        window.location = "../html/configList.html";
     },
     /*
      * 〈一句话功能简述〉判断是新增还是修改
@@ -175,7 +174,7 @@ var configTool = {
      */
     loadData: function (apiNo) {
         $.ajax({
-            type: "POST",
+            type: "GET",
             url: baseUrl + configTool.configParam.infoUrl + apiNo,
             dataType: "json",
             beforeSend: function () {
@@ -189,7 +188,7 @@ var configTool = {
                 $.messager.progress('close');
             },
             success: function (data) {
-                if (data.code == 1000000) {
+                if (data.code == 0) {
                     $("#apiName").textbox("setValue", data.data.apiName);
                     $("#apiNo").textbox("setValue", data.data.apiNo);
                     $("#jsonString").textbox("setValue", data.data.jsonString);

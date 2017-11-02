@@ -30,10 +30,9 @@ $(function () {
                 if (value.length > 0) {
                     a = /^[^\\.|\n]{0,50}$/.test(value);
                     $.ajax({
-                        type: 'POST',
-                        data: {"apiNo": value},
+                        type: 'GET',
                         dataType: 'json',
-                        url: baseUrl + "/configTool/isNumExist",
+                        url: baseUrl + "/configTool/isNumExist/"+value,
                         async: false,
                         success: function (data) {
                             if (data.data > 0) {
