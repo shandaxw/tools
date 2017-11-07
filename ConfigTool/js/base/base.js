@@ -5,4 +5,4 @@
  * 修改时间：2017-07-20 17:52
  * 修改内容：新建
  **/
-var baseUrl= "http://ip:port/mrx-cfgtool";
+var baseUrl= "http://119.23.105.36:8099/mrx-cfgtool";

@@ -110,14 +110,15 @@ var configTool = {
             msg: '数据保存中，请稍候……',
             text: ''
         });
-        $infoForm.form("submit", {
+        $infoForm.ajaxSubmit({
             url: url,
-            onSubmit: function (param) {
-                param.jsonData = jsonData;
+            dataType:'json',
+            beforeSubmit: function (param) {
+                param.push({name:'jsonData',value:jsonData});
+                return true;
             },
             success: function (data) {
                 $.messager.progress('close');
-                data = JSON.parse(data);
                 if (data.code == 0) {
                     configTool.toListView();
                 } else {
@@ -126,6 +127,7 @@ var configTool = {
             },
             error: function () {
                 $.messager.progress('close');
+                $.messager.alert('提示', '网络异常', 'error');
             }
         });
     },

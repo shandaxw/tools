@@ -99,22 +99,22 @@ blockquote, q {quotes: "" "";}
     border: 1px solid transparent;
     border-radius: 4px;
 }
-.btn-success{
+.btn-green{
     color: #fff;
     background-color: #5cb85c;
     border-color: #4cae4c;
 }
-.btn-primary {
+.btn-blue{
      color: #fff;
      background-color: #428bca;
      border-color: #357ebd;
  }
-.btn-delete {
+.btn-red{
     color: #fff;
     background-color: #d9534f;
     border-color: #d43f3a;
 }
-.btn-find{
+.btn-yellow{
     color: #fff;
     background-color: #d9c039;
     border-color: #d9c039;

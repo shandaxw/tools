@@ -12,7 +12,8 @@ var configList = {
     configParam: {
         REGX_HTML_ENCODE: /"|&|'|<|>|[\x00-\x20]|[\x7F-\xFF]|[\u0100-\u2700]/g,
         configListUrl: "/configTool/configList",
-        deleteUrl: "/configTool/delete/"
+        deleteUrl: "/configTool/delete/",
+        testUrl: "/configTool/jsonData/"
     },
     /*
      * 〈一句话功能简述〉初始化
@@ -23,6 +24,7 @@ var configList = {
         $("#updateBtn").click(configList.toUpdateView);
         $("#searchBtn").click(configList.filterData);
         $("#deleteBtn").click(configList.delete);
+        $("#testBtn").click(configList.test);
         configList.initTable();
     },
     /*
@@ -74,7 +76,7 @@ var configList = {
         var $configTable = $("#configTable");
         var row = $configTable.datagrid('getSelected');
         if (row) {
-            window.location = "../html/configTool.html?apiNo="+row.apiNo;
+            window.location = "../html/configTool.html?apiNo=" + row.apiNo;
         } else {
             $.messager.alert('警告', '你没有选中要删除的数据', 'warning');
         }
@@ -106,7 +108,7 @@ var configList = {
                 if (r) {
                     $.ajax({
                         type: "DELETE",
-                        url: baseUrl + configList.configParam.deleteUrl+row.id,
+                        url: baseUrl + configList.configParam.deleteUrl + row.id,
                         dataType: "json",
                         success: function (data) {
                             if (data.code == 0) {
@@ -121,6 +123,36 @@ var configList = {
             });
         } else {
             $.messager.alert('警告', '你没有选中要删除的数据', 'warning');
+        }
+    },
+    /*
+     * 〈一句话功能简述〉测试接口数据
+     * 〈功能详细描述〉
+     */
+    test: function () {
+        var $configTable = $("#configTable");
+        var row = $configTable.datagrid('getSelected');
+        if (row) {
+            $.ajax({
+                type: "GET",
+                url: baseUrl + configList.configParam.testUrl + row.apiNo,
+                dataType: "json",
+                success: function (data) {
+                    $.messager.show({
+                        title: row.apiName + '--' + baseUrl + configList.configParam.testUrl + row.apiNo,
+                        msg: "返回结果：" + data + "<br><br>结果内容：" + JSON.stringify(data),
+                        showType: 'slide',
+                        timeout: 0,
+                        height: '100%',
+                        width: '100%',
+                        style: {
+                            top: document.body.scrollTop + document.documentElement.scrollTop
+                        }
+                    });
+                }
+            });
+        } else {
+            $.messager.alert('警告', '你没有选中要测试的数据', 'warning');
         }
     }
 };
